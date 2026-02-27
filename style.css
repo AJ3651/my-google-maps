@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+#controls {
+  padding: 10px;
+  background: white;
+  position: relative;
+  z-index: 1000;
+}
+
+#map {
+  height: 90vh;
+  width: 100%;
+}
+
+button {
+  padding: 8px 12px;
+  margin-left: 10px;
+  cursor: pointer;
+}
