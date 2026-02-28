@@ -6,7 +6,7 @@ I wanted to create a system that harnesses the benefits of using location tracki
 
 I would like to use pictures to document the places I have been, the way my body has moved in a space, and how far I have travelled in a day without being encoded into fodder to be sold to big data companies.
 
-This is a prototype that works on both laptops and mobiles, but more ideally on mobile. It allows you to track and archive your movement using your location and you can choose to document each current location by uploading a photo or taking a picture on the spot.
+This is a prototype that works on both laptops and mobiles, but more ideally on mobile. It allows you to track and archive your movement using your location and you can choose to document each current location by uploading a photo or taking a picture on the spot. The data is stored locally on your browser so it is private and you can delete it whenever you would like. 
 
 ## Tech spec   ##
 
