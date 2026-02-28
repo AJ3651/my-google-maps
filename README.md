@@ -2,7 +2,7 @@
 
 ### Concept ###
  
-I want to create a system that harnesses the benefits of using location tracking technology to archive memories without the disadvantage of being data farmed by big tech.
+I wanted to create a system that harnesses the benefits of using location tracking technology to archive memories without the disadvantage of being data farmed by big tech.
 
 I would like to use pictures to document the places I have been, the way my body has moved in a space, and how far I have travelled in a day without being encoded into fodder to be sold to big data companies.
 
