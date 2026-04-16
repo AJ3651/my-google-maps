@@ -1,31 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My Travel Tracker</title>
+  <title>Map Journal</title>
 
-  <!-- Leaflet CSS -->
-  <link rel="stylesheet"
-        href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
+  <!-- Your CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <div id="controls">
-    <input type="file"
-           accept="image/*"
-           capture="camera"
-           id="photoInput">
-    <button id="clearBtn">Clear All</button>
-  </div>
+<h2>My Map Journal</h2>
 
-  <div id="map"></div>
+<div class="controls">
+  <label for="photoInput" class="custom-btn">📸 Upload Photo</label>
+  <input type="file" id="photoInput" accept="image/*" hidden>
 
-  <!-- Leaflet JS -->
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script src="app.js"></script>
+  <label for="importInput" class="custom-btn">📥 Import Another Map</label>
+  <input type="file" id="importInput" accept=".json" hidden>
+
+  <button id="exportBtn" class="custom-btn">📤 Export My Map</button>
+  <button id="clearBtn" class="custom-btn">🗑 Clear All Map Data</button>
+</div>
+
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
