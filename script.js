@@ -6,17 +6,9 @@ Open Street Map https://www.openstreetmap.org/#map=6/54.91/-3.43 ,
 Leaflet API  https://leafletjs.com/ 
 Using JS to create interactive street maps https://jsfiddle.net/ircama/0oend7he/, https://ircama.github.io/osm-carto-tutorials/map-client/ ,
 ChatGPT for handling photo input https://chatgpt.com/c/69a32f07-b500-8330-907b-5a1e7ff02cc6 
- */
-
-/* my google maps - IndexedDB version
-   Jemila Abdulai
-   Upgraded: uses IndexedDB + Blob images (no base64)
+Using IndexedDB + Blob images https://stackoverflow.com/questions/22740186/using-indexeddb-to-save-images  
 */
 
-
-// -----------------------------
-// MAP SETUP
-// -----------------------------
 let map = L.map('map').setView([0, 0], 2);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -26,9 +18,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 let markers = [];
 let db;
 
-// -----------------------------
-// INDEXED DB
-// -----------------------------
+// Add IndexDB
 let request = indexedDB.open("MapDB", 1);
 
 request.onupgradeneeded = function (e) {
@@ -41,9 +31,7 @@ request.onsuccess = function (e) {
   loadPlaces();
 };
 
-// -----------------------------
-// LOAD DATA
-// -----------------------------
+// loading the map data
 function loadPlaces() {
   let tx = db.transaction("places", "readonly");
   let store = tx.objectStore("places");
@@ -62,9 +50,7 @@ function loadPlaces() {
   };
 }
 
-// -----------------------------
-// ADD PHOTO
-// -----------------------------
+//Uploading a photo
 document.getElementById("photoInput")
 .addEventListener("change", function (event) {
 
@@ -92,9 +78,7 @@ document.getElementById("photoInput")
   };
 });
 
-// -----------------------------
-// SAVE PLACE
-// -----------------------------
+//Save location using imageBlob
 function savePlace(imageBlob) {
 
   navigator.geolocation.getCurrentPosition(position => {
@@ -118,9 +102,7 @@ function savePlace(imageBlob) {
   });
 }
 
-// -----------------------------
-// ADD MARKER
-// -----------------------------
+// Adding a location marker
 function addMarker(place) {
 
   let marker = L.marker([place.lat, place.lon]).addTo(map);
@@ -135,9 +117,7 @@ function addMarker(place) {
   markers.push(marker);
 }
 
-// -----------------------------
-// CLEAR DATA
-// -----------------------------
+// Clear all the data on the map
 document.getElementById("clearBtn")
 .addEventListener("click", function () {
 
@@ -150,9 +130,7 @@ document.getElementById("clearBtn")
   }
 });
 
-// -----------------------------
-// EXPORT DATA
-// -----------------------------
+// Exporting maps to json format
 document.getElementById("exportBtn")
 .addEventListener("click", function () {
 
@@ -164,7 +142,7 @@ document.getElementById("exportBtn")
   request.onsuccess = async function () {
     let places = request.result;
 
-    // convert blobs → base64 for sharing
+    // convert blobs into base64 for sharing
     let converted = await Promise.all(
       places.map(async (p) => {
         return {
@@ -196,9 +174,7 @@ function blobToBase64(blob) {
   });
 }
 
-// -----------------------------
-// IMPORT DATA
-// -----------------------------
+// importing another map
 document.getElementById("importInput")
 .addEventListener("change", function (event) {
 
@@ -228,9 +204,7 @@ document.getElementById("importInput")
   reader.readAsText(file);
 });
 
-// -----------------------------
-// SERVICE WORKER REGISTER
-// -----------------------------
+// service worker
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("service-worker.js");
 }
