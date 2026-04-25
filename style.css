@@ -18,7 +18,7 @@ h2 {
   overflow: hidden;
 }
 
-/* Controls container */
+/* Control the container */
 .controls {
   display: flex;
   gap: 10px;
@@ -26,7 +26,7 @@ h2 {
   margin-bottom: 10px;
 }
 
-/* Button styling (applies to labels + buttons) */
+/* Button styling for labelss and buttons */
 .custom-btn {
   padding: 10px 16px;
   background-color: #1e88e5;
@@ -52,7 +52,7 @@ h2 {
   transform: scale(0.97);
 }
 
-/* Make buttons full width on small screens */
+/* Make the buttons full width on small screens */
 @media (max-width: 600px) {
   .controls {
     flex-direction: column;
